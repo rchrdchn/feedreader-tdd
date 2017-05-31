@@ -40,11 +40,18 @@ $(function() {
             })
          })
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         describe('allFeeds', function(){
+            allFeeds.forEach(function(allFeeds){
+                it('name is defined', function(){
+                    expect(allFeeds.name).toBeDefined();
+                    expect(allFeeds.name).not.toBe(0);
+                })
+            })
+         })
     });
 
 

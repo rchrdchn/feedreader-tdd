@@ -47,6 +47,7 @@ Whether you work in an organization that uses test-driven development or in an o
 ### Resources
 
 * [Testing DOM Events Using jQuery and Jasmine 2.0](http://www.htmlgoodies.com/beyond/javascript/js-ref/testing-dom-events-using-jquery-and-jasmine-2.0.html)
-* [Jasmine-Jquery](https://github.com/velesin/jasmine-jquery)
+* [Jasmine + jQuery](https://github.com/velesin/jasmine-jquery)
+* [Jasmine](http://jasmine.github.io/)
 
 ###### Richard

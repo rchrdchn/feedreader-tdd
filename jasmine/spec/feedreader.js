@@ -36,6 +36,7 @@ $(function() {
                 it('URL is defined', function(){
                     expect(allFeeds.url).toBeDefined(); // all urls inside allFeed array should be defined
                     expect(allFeeds.url).not.toBe(0); // all urls inside allFeed array should have an url
+                    expect(allFeeds.url).not.toEqual(''); // all urls inside allFeed array should have an url
                 });
             });
          });
@@ -49,6 +50,7 @@ $(function() {
                 it('name is defined', function(){
                     expect(allFeeds.name).toBeDefined(); // all names inside allFeed array should be defined
                     expect(allFeeds.name).not.toBe(0); // all urls inside allFeed array should have a name string
+                    expect(allFeeds.name).not.toEqual(''); // all urls inside allFeed array should not be empty
                 });
             });
          });
@@ -72,11 +74,14 @@ $(function() {
         * should have two expectations: does the menu display when
         * clicked and does it hide when clicked again.
         */
-          it('menu changes visibility when menu icon is clicked', function(){
-            $('.menu-icon-list').trigger('click'); // event trigger on menu-icon-list class
-            expect($('body').hasClass('menu-hidden')).toBe(true); // first click shows menu
+        it('menu changes visibility when menu icon is clicked', function(){
+            
+            $('.menu-icon-link').trigger('click'); // event trigger on menu-icon-list class
+            expect($('body').hasClass('menu-hidden')).toBe(false); // first click shows menu
+
+            $('.menu-icon-link').trigger('click'); // event trigger on menu-icon-list class
             expect($('body').hasClass('menu-hidden')).toBe(true); // second click hides menu
-          });
+      });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function(){
@@ -88,13 +93,11 @@ $(function() {
         * the use of Jasmine's beforeEach and asynchronous done() function.
         */
         beforeEach(function(done){ // asynchronously go through each feed when loaded - pass done parameter so the function knows when to stop
-            setTimeout(function(){ // setting timeout for async loading
-                loadFeed(0, done); // initiate loadFeed function on 0 and pass callback done to stop it
-            }, 2000); // 2 seconds for loading loadFeed function
-        }, 2000); // 2 seconds for loading beforeEach function
+            loadFeed(0, done); // initiate loadFeed function on 0 and pass callback done to stop it
+        }); 
 
         it('has entries', function(done){ // passing done as parameter so function knows when to stop
-            expect($('.feed').children().length).toBeGreaterThan(0); // looks for feed class, then any children to be greater than 0 OR has at least an entry
+            expect($('.feed .entry').length).not.toBe(0); // looks for feed class, then any children to be greater than 0 OR has at least an entry
             done(); // call done() to stop function
         });
     });

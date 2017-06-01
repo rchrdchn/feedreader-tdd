@@ -49,9 +49,9 @@ $(function() {
                 it('name is defined', function(){
                     expect(allFeeds.name).toBeDefined(); // all names inside allFeed array should be defined
                     expect(allFeeds.name).not.toBe(0); // all urls inside allFeed array should have a name string
-                })
-            })
-         })
+                });
+            });
+         });
     });
 
 
